@@ -91,23 +91,31 @@ router.post('/signin', (req,res)=>{
 
 router.get('/users/:name',async (req, res)=>{
     
-    const result = await User.findOne({name:req.params.name},{name:1,Age:1,email:1,DOB:1,FavouriteFoods:1,_id:0})
+    const result = await User.findOne({name:req.params.name},{name:1,Age:1,email:1,DOB:1,FavouriteFoods:1,_id:1})
     res.send(result)
 })
 
 router.delete('/users/:name',async (req, res) => {
     const result =await User.deleteOne({name:req.params.name})
-    res.send(result)
+    console.log(result)
+    res.send("Successfully Deleted")
 })
 
 router.patch('/users/:name',async (req, res) => {
     const result = await User.updateOne({name:req.params.name},{$set:{Age:req.body.Age,DOB:req.body.DOB,FavouriteFoods:req.body.FavouriteFoods}})
-    res.send(result)
+    console.log(result)
+    res.send("Successfully updated")
 })
 
 router.get('/',async (req,res)=>{
     const result = await User.find({},{name:1,email:1,DOB:1,Age:1,FavouriteFoods:1})
     res.send(result)
 })
+
+// router.get('/',async (req,res)=>{
+//     const result = await User.find({FavouriteFoods:{$all:["Omlette"]}},{name:1,email:1,DOB:1,Age:1,FavouriteFoods:1})
+//     res.send(result)
+// })
+
 
 module.exports = router

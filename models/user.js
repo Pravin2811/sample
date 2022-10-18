@@ -21,22 +21,22 @@ const userSchema = new mongoose.Schema({
         type: String,
         required:true
     },
-    FavouriteFoods:[{
-        1:{
+    FavouriteFoods:[
+        {
             type:String,
             required:true
         },
-        2:{
+        {
             type:String,
             required:true
         },
-        3:{
+        {
             type:String
         },
-        4:{
+        {
             type:String
         }
-    }],
+    ],
     UID:{
         type:String,
         required:true
