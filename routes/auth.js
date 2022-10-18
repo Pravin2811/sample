@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken')
 const {JWT_SECRET} = require('../keys')
 const requireLogin = require('../middleware/requireLogin')
 const {v1:uuidv1} = require('uuid')
-const { db, updateOne } = require('../image.model')
+//const { db, updateOne } = require('../image.model')
 router.use(express.json())
 
 
@@ -88,36 +88,26 @@ router.post('/signin', (req,res)=>{
     
 // })
 
-router.get('/:name',(req, res)=>{
+
+router.get('/users/:name',async (req, res)=>{
     
-    User.findOne({name:req.params.name},{name:1,Age:1,email:1,DOB:1,FavouriteFoods:1})
-    .then((result)=>{
-        User.password = undefined
-        res.json(result)
-    })
-    .catch(err=>{
-        console.log(err)
-    }) 
+    const result = await User.findOne({name:req.params.name},{name:1,Age:1,email:1,DOB:1,FavouriteFoods:1,_id:0})
+    res.send(result)
 })
 
-router.delete('/:name',async (req, res) => {
+router.delete('/users/:name',async (req, res) => {
     const result =await User.deleteOne({name:req.params.name})
     res.send(result)
 })
 
-router.patch('/:name',async (req, res) => {
+router.patch('/users/:name',async (req, res) => {
     const result = await User.updateOne({name:req.params.name},{$set:{Age:req.body.Age,DOB:req.body.DOB,FavouriteFoods:req.body.FavouriteFoods}})
     res.send(result)
 })
 
-router.get('/',(req,res)=>{
-    User.find({},{name:1,email:1,DOB:1,Age:1,FavouriteFoods:1})
-    .then((result)=>{
-        res.json(result)
-    })
-    .catch((err)=>{
-        console.log(err)
-    })
+router.get('/',async (req,res)=>{
+    const result = await User.find({},{name:1,email:1,DOB:1,Age:1,FavouriteFoods:1})
+    res.send(result)
 })
 
 module.exports = router
