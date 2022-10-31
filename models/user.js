@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
     FavouriteFoods:[
         {
             type:String,
-            required:true
+            required:true 
         },
         {
             type:String,

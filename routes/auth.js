@@ -43,13 +43,11 @@ router.post('/signup', (req,res)=>{
         })
         .catch(err=>{
             console.log(err)
-            res.send('Bad request')
         })
     })
     })
     .catch(err=>{
         console.log(err)
-        res.send('Bad')
     })
 })
 
