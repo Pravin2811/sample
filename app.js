@@ -121,6 +121,6 @@ mongoose.connection.on('error',(err)=>{
 //     })
 // })
 
-app.listen(process.env.PORT,()=>{
+app.listen(PORT,()=>{
     console.log('Server up and running', PORT)
 })
