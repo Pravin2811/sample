@@ -1,7 +1,6 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "nodemon app.js"
@@ -11,6 +10,7 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
     "jsonwebtoken": "^8.5.1",
@@ -20,5 +20,14 @@
     "nodemon": "^2.0.20",
     "uid": "^2.0.1",
     "uuid": "^9.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pravin2811/sample.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Pravin2811/sample/issues"
+  },
+  "homepage": "https://github.com/Pravin2811/sample#readme",
+  "description": ""
 }

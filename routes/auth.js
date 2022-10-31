@@ -113,7 +113,7 @@ router.get('/',async (req,res)=>{
 })
 
 // router.get('/',async (req,res)=>{
-//     const result = await User.find({FavouriteFoods:{$all:["Omlette"]}},{name:1,email:1,DOB:1,Age:1,FavouriteFoods:1})
+//     const result = await User.find({'FavouriteFoods.1':{$all:["Mutton"]}},{name:1,email:1,DOB:1,Age:1,FavouriteFoods:1})
 //     res.send(result)
 // })
 
