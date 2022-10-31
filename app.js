@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 8888
 const {MONGOURI} = require('./keys')
 const cors = require('cors')
 //const multer = require('multer')
@@ -12,12 +12,17 @@ const cors = require('cors')
 //const path = require('path')
 //require('dotenv/config');
 
+app.use(
+    cors({origin: ['http://localhost:8888', 'http://127.0.0.1:8888']})
+)
+
 require('./models/user')
 require('./models/post')
 
 //app.use(bodyParser.urlencoded({ extended: false }))
 //app.use(bodyParser.json())
-  
+
+
 app.use(cors())
 app.use(express.json())
 app.use(require('./routes/auth'))
