@@ -9,8 +9,7 @@ const cors = require('cors')
 //const Imagemodel = require('./image.model')
 //const imgModel = require('./model');
 //const bodyParser = require('body-parser')
-//const path = require('path')
-//require('dotenv/config');
+//const path = require('path')require('dotenv').config()
 require('./models/user')
 require('./models/post')
 
@@ -122,6 +121,6 @@ mongoose.connection.on('error',(err)=>{
 //     })
 // })
 
-app.listen(PORT,()=>{
+app.listen(process.env.PORT,()=>{
     console.log('Server up and running', PORT)
 })
